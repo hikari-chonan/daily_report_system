@@ -53,7 +53,7 @@ public class EmployeesIndexServlet extends HttpServlet {
         em.close();
 
         request.setAttribute("employees",employees);
-        request.setAttribute("messages_count", employees_count);     // 全件数
+        request.setAttribute("employees_count", employees_count);     // 全件数
         request.setAttribute("page", page);                         // ページ数
 
         //フラッシュメッセージがセッションスコープにセットされていたら
