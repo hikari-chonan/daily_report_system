@@ -13,21 +13,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import models.Employee;
-import models.validators.EmployeeValidators;
+import models.validators.EmployeeValidator;
 import utils.DBUtil;
 import utils.EncryptUtil;
 
 /**
- * Servlet implementation class EmployeeCreateServlet
+ * Servlet implementation class EmployeesCreateServlet
  */
 @WebServlet("/employees/create")
-public class EmployeeCreateServlet extends HttpServlet {
+public class EmployeesCreateServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EmployeeCreateServlet() {
+    public EmployeesCreateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -58,7 +58,7 @@ public class EmployeeCreateServlet extends HttpServlet {
             e.setUpdated_at(curentTime);
             e.setDelete_flag(0);
 
-            List<String> errors = EmployeeValidators.validate(e,true,true);
+            List<String> errors = EmployeeValidator.validate(e,true,true);
             if(errors.size()>0) {
                 em.close();
 
@@ -76,7 +76,7 @@ public class EmployeeCreateServlet extends HttpServlet {
                 em.close();
                 request.getSession().setAttribute("flush","登録が完了しました。");
 
-                response.sendRedirect(request.getContextPath()+"/employees/index");
+                response.sendRedirect(request.getContextPath()+"/controllers.employees/index");
             }
         }
     }
