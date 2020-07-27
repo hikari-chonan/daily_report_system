@@ -35,6 +35,7 @@ public class EmployeesEditServlet extends HttpServlet {
             throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
 
+        //該当IDの従業員情報1件のみをデータベースから取得
         Employee e = em.find(Employee.class, Integer.parseInt(request.getParameter("id")));
 
         em.close();

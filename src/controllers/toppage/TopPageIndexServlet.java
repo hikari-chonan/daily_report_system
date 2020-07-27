@@ -29,7 +29,7 @@ public class TopPageIndexServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if(request.getSession().getAttribute("fluseh") != null) {
+        if(request.getSession().getAttribute("flush") != null) {
             request.setAttribute("flush",request.getSession().getAttribute("flush"));
             request.getSession().removeAttribute("flush");
         }

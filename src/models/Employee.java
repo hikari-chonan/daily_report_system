@@ -13,19 +13,19 @@ import javax.persistence.Table;
 
 @Table(name="employees")
 @NamedQueries({
-    @NamedQuery(
+    @NamedQuery( //すべての従業員情報を取得
         name = "getAllEmployees",
         query = "SELECT e FROM Employee AS e ORDER BY e.id DESC"
     ),
-    @NamedQuery(
+    @NamedQuery( //従業員情報の全件数を取得
             name = "getEmployeesCount",
             query = "SELECT COUNT(e) FROM Employee AS e"
             ),
-    @NamedQuery(
+    @NamedQuery( //指定された社員番号が既にデータベースに存在しているかを調べる
             name = "checkRegisteredCode",
             query = "SELECT COUNT(e) FROM Employee AS e WHERE e.code = :code"
             ),
-    @NamedQuery(
+    @NamedQuery( //従業員がログインするときに社員番号とパスワードが正しいかを調べる
             name = "checkLoginCodeAndPassword",
             query = "SELECT e FROM Employee AS e WHERE e.delete_flag = 0 AND e.code = :code AND e.password = :pass"
             )
